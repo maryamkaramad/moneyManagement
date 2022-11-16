@@ -8,11 +8,13 @@ import { AddMonyFormOption } from '../../data/AddMonyFormOption'
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Addmony } from "../../redux/slice/MonysSlice"
+import AddmonyformDialog from './AddmonyformDialog';
 
 
 
 function AddMonyForm(): JSX.Element {
     const [disabled, setDisabled] = useState<boolean>(false)
+    const [openDialog, setOpenDialog] = useState<boolean>(false)
     const [form, setForm] = useState<MonyType>({
         id: Math.floor(Math.random() * 1000),
         type: "",
@@ -26,6 +28,7 @@ function AddMonyForm(): JSX.Element {
 
     const handlesubmit = () => {
         dispatch(Addmony(form))
+        setOpenDialog(true)
     }
     useEffect(() => {
         setDisabled(form.title === '' || form.price === '')
@@ -54,6 +57,7 @@ function AddMonyForm(): JSX.Element {
                     <Typography>اضافه کردن {form.type === "income" ? "درآمد" : "هزینه"}</Typography>
                 </Button>
             </Grid>
+            <AddmonyformDialog open={openDialog} />
         </Grid>
     )
 }
