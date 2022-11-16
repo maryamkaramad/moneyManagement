@@ -2,10 +2,12 @@
 import { Button, Typography } from '@mui/material';
 import { TextField } from '@mui/material';
 import { Grid } from '@mui/material';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { MonyType } from './../../model/MonyType';
 import { AddMonyFormOption } from '../../data/AddMonyFormOption'
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Addmony } from "../../redux/slice/MonysSlice"
 
 
 
@@ -14,14 +16,19 @@ function AddMonyForm(): JSX.Element {
     const [form, setForm] = useState<MonyType>({
         id: Math.floor(Math.random() * 1000),
         type: "",
-        price: 0,
+        price: '',
         title: ""
     })
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const dispatch = useDispatch()
+    const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value })
+    }, [form])
+
+    const handlesubmit = () => {
+        dispatch(Addmony(form))
     }
     useEffect(() => {
-        setDisabled(form.title === '' || form.price === 0)
+        setDisabled(form.title === '' || form.price === '')
     }, [form])
     return (
         <Grid item xs={12} p={2}>
@@ -43,7 +50,7 @@ function AddMonyForm(): JSX.Element {
                 </Grid>
             </Grid>
             <Grid item xs={12} p={2}>
-                <Button variant={"contained"} fullWidth disabled={disabled} color={form.type === "income" ? "success" : "error"}>
+                <Button variant={"contained"} fullWidth disabled={disabled} color={form.type === "income" ? "success" : "error"} onClick={handlesubmit}>
                     <Typography>اضافه کردن {form.type === "income" ? "درآمد" : "هزینه"}</Typography>
                 </Button>
             </Grid>
