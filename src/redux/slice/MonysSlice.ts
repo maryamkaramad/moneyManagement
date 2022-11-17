@@ -19,12 +19,16 @@ export const MonysSice = createSlice({
       state.push(payload)
     },
     deletemony: (state,action) => {
+      // payload id
       const { payload } = action
-      const index=state.findIndex(state=> state.id===payload.id)
+      const index=state.findIndex(state=> state.id === payload.id)
       state.splice(index,1)
     },
     updatemony: (state, action) => {
-
+      const { payload } = action
+      // payload {}
+      const index=state.findIndex(state=>state.id === payload.id)
+      state[index]=payload
     },
   },
 })
