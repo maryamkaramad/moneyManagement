@@ -14,19 +14,22 @@ export const MonysSice = createSlice({
   initialState,
   reducers: {
     Addmony: (state, action) => {
+      const { payload } = action
       // payload {}
-      state.push(action.payload)
+      state.push(payload)
     },
-    decrement: (state) => {
-
+    deletemony: (state,action) => {
+      const { payload } = action
+      const index=state.findIndex(state=> state.id===payload.id)
+      state.splice(index,1)
     },
-    incrementByAmount: (state, action) => {
+    updatemony: (state, action) => {
 
     },
   },
 })
 
 
-export const { Addmony, decrement, incrementByAmount } = MonysSice.actions
+export const { Addmony, deletemony, updatemony } = MonysSice.actions
 
 export default MonysSice.reducer
