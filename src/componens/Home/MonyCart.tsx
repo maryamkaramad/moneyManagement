@@ -5,8 +5,9 @@ import { ReactNode } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import styled from '@emotion/styled';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { MonyType } from '../../model/MonyType';
+import { deletemony } from '../../redux/slice/MonysSlice';
 
 interface MonyCartProps {
     backgroundcolor: string,
@@ -19,10 +20,15 @@ interface MonyCartProps {
 const MonyCart = ({ backgroundcolor, title, icon, type }: MonyCartProps): JSX.Element => {
     const monyArr = useSelector((state: { mony: MonyType[] }) => state.mony)
 
+    const dispatch=useDispatch()
 
     const CustomIconBtn = styled(IconButton)({
         color: "white"
     })
+    const handledelete=(id:number)=>{
+        dispatch(deletemony(id)) 
+
+    }
 
     return (
         <Grid container alignItems={"center"} item xs={12} sm={6} md={4} borderRadius={2} p={2} bgcolor={backgroundcolor} sx={{ my: { xs: 2, md: 0 } }} color={"common.white"}>
@@ -43,7 +49,7 @@ const MonyCart = ({ backgroundcolor, title, icon, type }: MonyCartProps): JSX.El
                         <Typography>{m.price}</Typography>
                     </Grid>
                     <Grid item xs={2}>
-                        <CustomIconBtn>
+                        <CustomIconBtn onClick={()=>handledelete(m.id)}>
                             <DeleteIcon />
                         </CustomIconBtn>
                     </Grid>
