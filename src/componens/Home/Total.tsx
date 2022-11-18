@@ -17,7 +17,7 @@ const Total = (): JSX.Element => {
                 <Typography>موجودی</Typography>
             </Grid>
             <Grid xs={6} display={"flex"} justifyContent={"flex-end"}>
-                <Typography>تومان{total}</Typography>
+                <Typography>{total} تومان</Typography>
             </Grid>
         </Grid>
     )

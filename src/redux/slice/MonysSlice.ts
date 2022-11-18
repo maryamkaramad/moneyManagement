@@ -2,9 +2,10 @@ import { createSlice } from '@reduxjs/toolkit'
 import { MonyType } from '../../model/MonyType';
 
 const initialState: MonyType[] = [
-  { id: 1, type: 'income', title: "حقوق ", price: "123000" },
+  { id: 1, type: 'income', title: "حقوق ", price: "123000000" },
   { id: 2, type: "expense", title: "خرید گوشت ", price: "1000" },
-  { id: 3, type: 'income', title: " هدیه", price: "123000" },
+  { id: 3, type: 'income', title: " هدیه", price: "12300000" },
+  { id: 3, type: 'expense', title: " خرید شامپو", price: "123000" },
 ]
 
 

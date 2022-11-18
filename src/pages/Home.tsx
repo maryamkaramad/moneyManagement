@@ -20,7 +20,7 @@ const Home = (): JSX.Element => {
             <Total />
             <MonyCart backgroundcolor={"success.light"} title={"هزینه ها"} icon={<TrendingUpIcon />} type={"income"} />
             <MonyCart backgroundcolor={"error.light"} title={"خرج ها"} icon={<TrendingDownIcon />} type={"expense"} />
-            <Chart />
+            {/* <Chart /> */}
         </Grid>
     )
 }

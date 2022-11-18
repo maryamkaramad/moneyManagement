@@ -8,6 +8,7 @@ import styled from '@emotion/styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { MonyType } from '../../model/MonyType';
 import { deletemony } from '../../redux/slice/MonysSlice';
+import { Link } from 'react-router-dom';
 
 interface MonyCartProps {
     backgroundcolor: string,
@@ -49,14 +50,17 @@ const MonyCart = ({ backgroundcolor, title, icon, type }: MonyCartProps): JSX.El
                         <Typography>{m.price}</Typography>
                     </Grid>
                     <Grid item xs={2}>
-                        <CustomIconBtn onClick={()=>handledelete(m.id)}>
+                    <CustomIconBtn onClick={()=>handledelete(m.id)}>
                             <DeleteIcon />
                         </CustomIconBtn>
+                        
                     </Grid>
                     <Grid item xs={2}>
+                        <Link to={`/updatemony/${m.id}`}>
                         <CustomIconBtn>
                             <EditIcon />
                         </CustomIconBtn>
+                        </Link>
                     </Grid>
                 </Grid>
             ))}

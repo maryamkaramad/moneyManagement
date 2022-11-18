@@ -9,6 +9,10 @@ export const Route = createBrowserRouter([{
 }, {
     path: "/addMony",
     element: <Addmony />
-}
+},
+{
+  path: "/updatemony/:monyId",
+  element: <Addmony/>,
+},
 ])
 
