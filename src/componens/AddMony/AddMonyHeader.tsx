@@ -10,7 +10,7 @@ const AddMonyHeader = (): JSX.Element => {
         <Grid container item xs={12} alignItems={"center"} my={2}>
             <Grid item xs={6} >
                 <Typography>
-                    اضافه کردن دخل و خرج ها
+                      دخل و خرج ها
                 </Typography>
             </Grid>
             <Grid item xs={6} display={"flex"} justifyContent={"flex-end"}>
