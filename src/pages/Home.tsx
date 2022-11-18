@@ -18,8 +18,8 @@ const Home = (): JSX.Element => {
         <Grid container xs={12} p={2}>
             <Header />
             <Total />
-            <MonyCart backgroundcolor={"success.main"} title={"هزینه ها"} icon={<TrendingUpIcon />} type={"income"} />
-            <MonyCart backgroundcolor={"error.main"} title={"خرج ها"} icon={<TrendingDownIcon />} type={"expense"} />
+            <MonyCart backgroundcolor={"success.light"} title={"هزینه ها"} icon={<TrendingUpIcon />} type={"income"} />
+            <MonyCart backgroundcolor={"error.light"} title={"خرج ها"} icon={<TrendingDownIcon />} type={"expense"} />
             <Chart />
         </Grid>
     )
